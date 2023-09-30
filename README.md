@@ -1,11 +1,11 @@
 # Projet 1 : UE8 Architecture de données
 
 ## Sommaire :
- - [Description] (#Description) 
- - [La structure] (#Structure)
- - [Constitution des parties du code] (#Constitution des parties du code)
- - [Le mode d'utilisation] (#Mode d'utilisation)
- - [Les Résultats] (#Résultats)
+ - [La Description](#Description) 
+ - [La structure](#Structure)
+ - [La Constitution des parties du code](#Constitutiondespartiesducode)
+ - [Le Mode d'utilisation](#Moded'utilisation)
+ - [Les Résultats](#Résultats)
 
 ## 1. Description :
 L'objectif de ce projet :
