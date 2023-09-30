@@ -14,6 +14,7 @@ Trouver un train et un itinéraire de train depuis la gare choisit en partant de
 ## 2. Structure : 
 - Readme : explications concises du projet
 - Codeentier_rando.ipynb : codes sous format jupyter notebook du projet
+- script : explique l'utilisation de tous les packages du projet et les fonctions créées 
 
 ## 3. Constitution des parties du code :  
 Le projet est constitué de 3 parties de code qui sont regroupés en un pour former le projet.  
