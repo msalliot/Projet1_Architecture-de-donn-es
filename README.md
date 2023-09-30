@@ -19,3 +19,7 @@ La deuxième et la troisième ne fonctionne pas l'une sans l'autre : on a besoin
 ## 3. Mode d'utilisation :
 Tu choisis la date (J+23 maximum) et les horaires entre lequels tu souhaites partir et on te donne les trains, horaires et destinations possible. Ensuite, tu choisis un trajet parmi ceux proposés, qui permet de trouver des coordonnées GPS (latitude et longitude).  Puis, vient le choix de la durée maximum de la randonnée pour trouver la randonnée idéale. Parfait pour partir au dernier moment.
 N.B : Pour les date et les durées, il faut les remplir sous un format particulier pour que cela fonctionne.
+
+## Résultats : 
+Le code permet de donner dans la console deux tableaux sous format css. Le premier avec les 40 premiers trajets depuis la gare de Strasbourg avec l'horaire de départ.
+Le second avec les radonnées possible par durée décroissante. 
