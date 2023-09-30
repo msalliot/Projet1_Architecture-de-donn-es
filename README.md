@@ -9,7 +9,7 @@
 L'objectif de ce projet :
 Trouver un train et un itinéraire de train depuis la gare choisit en partant de Strasbourg. Cela permet de partir à proximité de la gare, ce qui est souvent un inconvénient des plateformes de randonnées. En effet, les premières randonnées proposées demande souvent l'utilisation d'une voiture.
 
-## 2. Structure /codeentier_rando.ypynb : 
+## 2. Structure : 
 Le projet est constitué de 3 parties de code qui sont regroupés en un pour former le projet.
 La première, le code donnant tous les trains possibles de la gare de Strasbourg entre deux horaires.
 Le deuxième, la partie coordonnée de la ville de la gare choisit
