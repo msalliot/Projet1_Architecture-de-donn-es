@@ -2,7 +2,7 @@
 
 ## Sommaire :
  - [La Description](#1.Description) 
- - [La structure](#2.Structure)
+ - [La Structure](#2.Structure)
  - [La Constitution des parties du code](#3.Constitutiondespartiesducode)
  - [Le Mode d'utilisation](#4.Moded'utilisation)
  - [Les Résultats](#5.Résultats)
