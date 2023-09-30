@@ -1,13 +1,13 @@
 # Projet 1 : UE8 Architecture de données
 
 ## Sommaire :
- - [La Description](#1.Description) 
+ - [La Description du projet](#1.Description) 
  - [La Structure](#2.Structure)
  - [La Constitution des parties du code](#3.Constitutiondespartiesducode)
  - [Le Mode d'utilisation](#4.Moded'utilisation)
  - [Les Résultats](#5.Résultats)
 
-## 1.Description :
+## 1. Description :
 L'objectif de ce projet :
 Trouver un train et un itinéraire de train depuis la gare choisit en partant de Strasbourg. Cela permet de partir à proximité de la gare, ce qui est souvent un inconvénient des plateformes de randonnées. En effet, les premières randonnées proposées demande souvent l'utilisation d'une voiture.
 
