@@ -117,7 +117,12 @@ else:
     print("L'heure maximum doit être supérieure ou égale à l'heure de départ", hour)
 print(heure_depart)
 
-df_tableau = pd.DataFrame(tableau)
+# Création du DataFrame
+df_randos = pd.DataFrame(randos_compatibles)
+
+# Tri par ordre croissant de la colonne "Duree"
+df_randos = df_randos.sort_values('Duree', ascending=False)
 
 # Affichage du tableau
-df_tableau.head(40)
+print(df_randos.shape)
+df_randos.head(30)
