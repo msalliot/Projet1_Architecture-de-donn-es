@@ -23,4 +23,4 @@ N.B : Pour les date et les durées, il faut les remplir sous un format particuli
 
 ## 4.Résultats : 
 Le code permet de donner dans la console deux tableaux sous format css. Le premier avec les 40 premiers trajets depuis la gare de Strasbourg avec l'horaire de départ.
-Le second avec les radonnées possible par durée décroissante. 
+Le second avec les randonnées possibles par durée décroissante. 
