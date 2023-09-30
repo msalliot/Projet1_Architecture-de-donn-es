@@ -15,7 +15,7 @@ Trouver un train et un itinéraire de train depuis la gare choisit en partant de
 - Readme : explications concises du projet
 - Codeentier_rando.ipynb : codes sous format jupyter notebook du projet
 
-# 3. Constitution des parties du code :  
+## 3. Constitution des parties du code :  
 Le projet est constitué de 3 parties de code qui sont regroupés en un pour former le projet.  
 La première :  le code donne tous les trains possibles de la gare de Strasbourg entre deux horaires. Pour se faire, nous utilisons l'API de la sncf : "https://numerique.sncf.com/startup/api/token-developpeur/"  
 La deuxième : la partie concerne les coordonnées de la ville de la gare choisit. L'API de "https://geo.api.gouv.fr/communes" est utilisé.  
