@@ -12,9 +12,9 @@ Trouver un train et un itinéraire de train depuis la gare choisit en partant de
 
 ## 2. Structure : 
 Le projet est constitué de 3 parties de code qui sont regroupés en un pour former le projet.
-La première, le code donnant tous les trains possibles de la gare de Strasbourg entre deux horaires.
-Le deuxième, la partie coordonnée de la ville de la gare choisit
-La troisième : le webscraping de l'application komoot qui propose les itinéraires possibles selon les conditions choisit.
+La première :  le code donne tous les trains possibles de la gare de Strasbourg entre deux horaires. Pour se faire, nous utilisons l'API de la sncf : https://numerique.sncf.com/startup/api/token-developpeur/
+Le deuxième : la partie concerne les coordonnées de la ville de la gare choisit. L'API de https://geo.api.gouv.fr/communes est utilisées.
+La troisième : Elle concerne le webscraping de l'application komoot qui propose les itinéraires possibles selon les conditions choisies.
 La deuxième et la troisième ne fonctionne pas l'une sans l'autre : on a besoin de la ville et des coordonnées pour créer l'url komoot.
 
 ## 3. Mode d'utilisation :
