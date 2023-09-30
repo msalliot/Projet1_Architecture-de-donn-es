@@ -1,0 +1,123 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Sep 21 00:29:13 2023
+
+@author: Marion
+"""
+# =============================================================================
+# Partie SNCF
+# =============================================================================
+import pandas as pd
+import requests
+from datetime import datetime
+
+#clé pour accéder à l'API
+token_auth = '1ae705b6-570c-4652-8562-346983b6f776'
+
+
+#création de fonction pour donner la date et l'heure de départ
+def page_gares(numero_page):
+    headers = {
+        "Authorization": f"Bearer {token_auth}"
+    }
+
+    return requests.get(
+        ('https://api.sncf.com/v1/coverage/sncf/journeys').format(numero_page),
+        headers=headers
+    )
+
+# fonction pour convertir en date la chaine de caractères de l'API 
+#et inversement, pour convertir la chaîne de caractère en date
+def convertir_en_temps(chaine) :
+    ''' on convertit en date la chaine de caractères de l API'''
+    return datetime.strptime(chaine,'%Y%m%dT%H%M%S')
+
+def convertir_en_chaine(dt) :
+    ''' on convertit en chaîne de caractères un datetime'''
+    return datetime.strftime(dt, '%Y%m%dT%H%M%S')
+
+day = input("Entrer la date de départ (DD/MM/YYYY): ")
+hour = input("Entrer une heure de départ (HH:Min):")
+
+#convertir la date entrée en chaîne sous forme la forme de l'API
+date_str = day + " " + hour
+
+date_depart_str = datetime.strptime(date_str, '%d/%m/%Y %H:%M').strftime('%Y%m%dT%H%M%S')
+date_depart_str2 = convertir_en_temps(date_depart_str)
+date_depart = convertir_en_chaine(date_depart_str2)
+
+print(date_depart)
+
+gare_depart = 'stop_area:SNCF:87212027'
+
+#connaitre les départs depuis la gare de Strasbourg
+def destinations_possibles(origine, datetime) :
+     return requests.get('https://api.sncf.com/v1/coverage/sncf/stop_areas/{}/' \
+                        'departures?from_datetime={}'.format(origine, datetime) ,
+                        auth=(token_auth, '')).json()
+
+#connaitre les trajets depuis la gare de Strasbourg
+def trajets_possibles(gare_depart, date_heure_depart, date_heure_max) :
+    
+    destinations = []
+
+    # on interroge l'API tant qu'il renvoie des informations
+    # sur les trains partant de Gare de Strasbourg
+
+    while convertir_en_temps(date_heure_depart) < convertir_en_temps(date_heure_max) :
+    # on prend toutes les destinations qui partent à partir d'une certaine heure
+        destinations = destinations + destinations_possibles(
+            gare_depart, date_heure_depart)['departures']
+
+        nombre_resultats = destinations_possibles(
+            gare_depart, date_heure_depart)['pagination']['items_on_page']
+
+        if nombre_resultats <= 0:
+            break
+
+        # on trouve l'heure max de la première série de 10 solutions que l'application renvoie
+        # on remplace l'heure qu'on cherche par celle là
+        resultats = destinations_possibles(gare_depart, date_heure_depart)
+        date_heure_depart = resultats['departures'][nombre_resultats-1][
+            'stop_date_time']['departure_date_time']
+
+    return destinations
+
+
+# on trouve l'ensemble des trajets dont le départ est compris entre deux horaires
+around = input("Quelle est l'heure maximum à laquelle vous pouvez partir (HH:Min):):")
+date_heure_max_str = day + " " + around
+date_heure_max_str2 = datetime.strptime(date_heure_max_str, '%d/%m/%Y %H:%M').strftime('%Y%m%dT%H%M%S')
+date_depart2_str2 = convertir_en_temps(date_heure_max_str2)
+date_max = convertir_en_chaine(date_depart2_str2)
+
+print("entre", hour, "et", around)
+
+# on demande à avoir tous les trajets partant de gare de Strasbourg
+# entre deux heures précises
+# on veut supprimer ceux pour lesquels le départ est après l'heure max
+
+if date_depart2_str2 <= convertir_en_temps(date_max):
+    destinations_depuis_Strasbourg = trajets_possibles(gare_depart, date_depart, date_max)
+    # Afficher les informations sous forme de tableau 
+    #Aligne le texte à gauche et occuper une largeur de 20 caractères. 
+    print("{:<20}  {:<20}".format("Ville", "Heure"))
+    tableau = []
+    for depart in destinations_depuis_Strasbourg:
+        heure_depart = convertir_en_temps(depart['stop_date_time']['departure_date_time']).time()
+        if (date_max >= date_depart):
+            tableau.append({
+            'ville': depart['display_informations']['direction'],
+            'heure': heure_depart
+            })
+    
+    print("Je peux prendre", len(destinations_depuis_Strasbourg),
+          "trains qui partent entre", hour, "et", around, "de Gare de Strasbourg")
+else:
+    print("L'heure maximum doit être supérieure ou égale à l'heure de départ", hour)
+print(heure_depart)
+
+df_tableau = pd.DataFrame(tableau)
+
+# Affichage du tableau
+df_tableau.head(40)
