@@ -1,0 +1,14 @@
+Les packages utilisés pour le projet sont :   
+- pandas pour les tableaux  
+- requests : pour le webscrapping, et ainsi chercher les informations sur une page web  
+- datetime : pour convertir les date en caractère et inversement  
+- json : pour lire des fichiers au format json  
+- selenium (webdriver, BY, WebDriverWait, expected_conditions, Options) : Pour utiliser selenium lorsque la page web était dynamique et donc possédait du javascript.
+
+Les fonctions utilisées dans le code que j'ai créées sont : 
+- page_gares : donne la date et l'heure de départ des trains  
+- convertir_en_temps : convertit en date la chaine de caractères de l API
+- convertir_en_chaine : convertit en chaîne de caractères un datetime  
+- destinations_possibles : extraire les données sur les gares d'arrivées depuis la gare de Strasbourg
+- trajets_possibles : donner les informations sur les gares d'arrivées selon les horaires choisis
+- convertir_en_duree : pour convertir en durée une chaîne de caractère de komoot
