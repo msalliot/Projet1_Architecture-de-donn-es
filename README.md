@@ -4,6 +4,7 @@
  -  Description du projet 
  -  La structure du code
  - Le mode d'utilisation
+ - Résultats
 
 ## 1. Descrition :
 L'objectif de ce projet :
